@@ -1,3 +1,30 @@
+# KeePassDroid
+Refactored from upstream at https://github.com/bpellin/keepassdroid.
+
+At the moment the initial mission here is to make it build, which it now does.
+
+This are likely slightly messed up regarding packet names atm.
+
+## Finding so far
+### sha2-07-01-07.zip
+The absents of any sha2-07-01-07.zip resolved using https://github.com/Rupan/sha. This lib is now bundled in the repo.
+
+### NDK build
+For now build using Android Studio 1.3 and experimental gradle plugins for NDK stuff.
+Build config created from this samples
+- https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/gradle-experimental
+- https://github.com/googlesamples/android-ndk
+- https://sites.google.com/a/android.com/tools/tech-docs/android-ndk-preview
+
+Also this is probably lacking things for making release builds, other than signing config.
+
+### JDK
+Setting AS to use JDK7 is required to make it build. JDK8 won't build, JDK6 will probably.
+
+
+
+Leaving this old instructions for now, tho not used.
+
 Native library build instructions:
 1. Make sure you have the latest MIPS Android NDK installed: 
    https://developer.android.com/tools/sdk/ndk/index.html

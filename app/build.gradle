@@ -1,0 +1,75 @@
+apply plugin: 'com.android.model.application'
+
+model {
+    android {
+        compileSdkVersion = 21
+        buildToolsVersion = "22.0.1"
+
+        defaultConfig.with {
+            applicationId = "com.keepassdroid.keepassdroid"
+            minSdkVersion.apiLevel = 15
+            targetSdkVersion.apiLevel = 22
+            versionCode = 1
+            versionName = "1.0"
+        }
+    }
+
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles += file('proguard-rules.pro')
+        }
+    }
+
+    android.productFlavors {
+//        create("flavor1") {
+//            applicationId = 'com.keepassdroid'
+//        }
+
+        create ("arm7") {
+            applicationId = 'com.sns.keepassdroid'
+            ndk.abiFilters += "armeabi-v7a"
+        }
+
+//        create("arm") {
+//            ndk.abiFilters += "armeabi"
+//        }
+//        create("arm7") {
+//            ndk.abiFilters += "armeabi-v7a"
+//        }
+//        create("arm8") {
+//            ndk.abiFilters += "arm64-v8a"
+//        }
+//        create("x86") {
+//            ndk.abiFilters += "x86"
+//        }
+//        create("x86-64") {
+//            ndk.abiFilters += "x86_64"
+//        }
+//        create("mips") {
+//            ndk.abiFilters += "mips"
+//        }
+//        create("mips-64") {
+//            ndk.abiFilters += "mips64"
+//        }
+//        // To include all cpu architectures, leaves abiFilters empty
+//        create("all")
+    }
+
+
+
+    android.ndk {
+        moduleName = "native"
+//        ldLibs    += ["aes", "sha", "log" ]
+        ldLibs += "log"
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile('com.android.support:appcompat-v7:22.2.1')
+//            {
+//        exclude group: 'com.android.support', module: 'appcompat-v7'
+//    }
+}
